@@ -19,6 +19,14 @@ border-style:solid;
 border-color:#ffffff;
 min-width:800px;
 max-width:800px;
+@media screen and (max-width:767px){
+min-width:400px;
+max-width:400px;
+}
+@media screen and (max-width:600px){
+min-width:350px;
+max-width:350px;
+}
 `
 export const Weapons = style.div`
 `
