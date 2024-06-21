@@ -19,6 +19,10 @@ border-style:solid;
 border-color:#ffffff;
 min-width:800px;
 max-width:800px;
+@media screen and (min-width:768px){
+min-width:600px;
+max-width:600px;
+}
 @media screen and (max-width:767px){
 min-width:400px;
 max-width:400px;
