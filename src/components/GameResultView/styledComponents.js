@@ -6,7 +6,6 @@ display:flex;
 flex-direction:row;
 justify-content:center;
 align-items:center;
-margin-right:50px;
 flex-wrap:wrap;
 `
 
@@ -19,6 +18,10 @@ font-size:22px;
 export const Image = style.img`
 height:150px;
 width:150px;
+@media screen and (max-width:375px){
+width:100px;
+height:100px;
+}
 `
 export const Result = style.p`
 color:#ffffff;
