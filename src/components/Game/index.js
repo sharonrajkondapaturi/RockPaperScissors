@@ -10,12 +10,12 @@ import {
   Name,
   Score,
   ScoreHead,
+  ScoreHead2,
   WeaponImage,
   RuleButton,
   PopDisplay,
   RuleImage,
   Trigger,
-  CenterContainer,
   CloseButton,
 } from './styledComponents'
 
@@ -60,7 +60,7 @@ const Game = props => {
         setAgain(prevState => !prevState)
         break
       default:
-        setScore(0)
+        setScore(prevState => prevState - 1)
         setGame('YOU LOSE')
         setAgain(prevState => !prevState)
     }
@@ -70,43 +70,36 @@ const Game = props => {
     setAgain(prevState => !prevState)
   }
 
-  console.log(weapons)
   return (
     <GameContainer>
-      <CenterContainer>
-        <ScoreBoard>
-          <Weapons>
-            <Name>
-              ROCK <br />
-              PAPER <br />
-              SCISSORS
-            </Name>
-          </Weapons>
-          <Score>
-            <ScoreHead fontsize={22} fontfamily="Bree Serif">
-              Score
-            </ScoreHead>
-            <ScoreHead fontsize={40} fontfamily="Roboto">
-              {currentScore}
-            </ScoreHead>
-          </Score>
-        </ScoreBoard>
-        {playAgain ? (
-          <WeaponImage wrap="wrap" width={400}>
-            <GameResultView weapons={weapons} onAgain={onAgain} game={game} />
-          </WeaponImage>
-        ) : (
-          <WeaponImage wrap="wrap" width={600}>
-            {choicesList.map(eachChoice => (
-              <WeaponImages
-                key={eachChoice.id}
-                weapons={eachChoice}
-                onGame={onGame}
-              />
-            ))}
-          </WeaponImage>
-        )}
-      </CenterContainer>
+      <ScoreBoard>
+        <Weapons>
+          <Name>
+            ROCK <br />
+            PAPER <br />
+            SCISSORS
+          </Name>
+        </Weapons>
+        <Score>
+          <ScoreHead fontfamily="Bree Serif">Score</ScoreHead>
+          <ScoreHead2 fontfamily="Roboto">{currentScore}</ScoreHead2>
+        </Score>
+      </ScoreBoard>
+      {playAgain ? (
+        <WeaponImage wrap="wrap">
+          <GameResultView weapons={weapons} onAgain={onAgain} game={game} />
+        </WeaponImage>
+      ) : (
+        <WeaponImage wrap="wrap">
+          {choicesList.map(eachChoice => (
+            <WeaponImages
+              key={eachChoice.id}
+              weapons={eachChoice}
+              onGame={onGame}
+            />
+          ))}
+        </WeaponImage>
+      )}
       <Trigger>
         <Popup modal trigger={<RuleButton>RULES</RuleButton>}>
           {close => (
