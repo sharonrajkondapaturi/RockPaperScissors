@@ -5,16 +5,15 @@ list-style:none;
 margin-right:50px;
 `
 
-export const Name = style.p`
-color:#ffffff;
-font-family:Roboto;
-font-weight:bold;
-font-size:22px;
-`
 export const Image = style.img`
 height:150px;
 width:150px;
 cursor:pointer;
+@media screen and (max-width:375px){
+height:100px;
+width:100px;
+cursor:pointer;  
+}
 `
 
 export const WeaponButton = style.button`
